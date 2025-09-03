@@ -1,0 +1,68 @@
+body {
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    font-family: "Prompt", sans-serif;
+    text-align: center;
+    padding: 50px 20px;
+    color: #fff;
+}
+
+form {
+    background: rgba(255,255,255,0.15);
+    padding: 40px;
+    border-radius: 25px;
+    max-width: 360px;
+    margin: 50px auto;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+h2 {
+    margin-bottom: 25px;
+    font-size: 28px;
+    text-shadow: 1px 1px 3px #ff6f91;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 80%;
+    padding: 12px 15px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    outline: none;
+}
+
+button[type="submit"] {
+    width: 85%;
+    padding: 14px;
+    border: none;
+    border-radius: 15px;
+    background: #ff6f91;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 15px;
+}
+
+button[type="submit"]:hover {
+    background: #ff477e;
+}
+
+.error-msg {
+    margin-top: 15px;
+    background: rgba(255,0,50,0.3);
+    padding: 10px;
+    border-radius: 12px;
+    color: #ffe3e3;
+}
+
+.register-link {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.register-link a {
+    color: #fff;
+    text-decoration: underline;
+}

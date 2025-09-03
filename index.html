@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="th">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Dashboard คู่รัก 💕</title>
+        <link rel="stylesheet" href="css/dashboard.css">
+        <link rel="icon" type="image/png" href="icon/icon.png">
+        <style>
+        body {
+            margin: 0;
+            font-family: "Prompt", sans-serif;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            width: 400px;
+            position: relative;
+            z-index: 1;
+        }
+
+        h2 {
+            color: #fff;
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 5px #ff6f91;
+        }
+
+        .avatars {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 25px;
+        }
+
+        .avatar-box {
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .avatar-box img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #fff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .avatar-box:hover {
+            transform: scale(1.2);
+        }
+
+        .info-box {
+            background: rgba(255, 255, 255, 0.6);
+            padding: 12px 20px;
+            border-radius: 20px;
+            margin: 10px 0;
+            font-weight: bold;
+            color: #ff477e;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .code-box {
+            background: #fff;
+            color: #ff6f91;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 15px;
+            font-size: 18px;
+            letter-spacing: 2px;
+            margin-top: 5px;
+        }
+
+        .logout-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 15px;
+            background: #ff6f91;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: 0.3s;
+        }
+
+        .logout-btn:hover {
+            background: #ff477e;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0.8;
+            animation-name: floatHeart;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+        }
+
+        .heart:hover {
+            transform: scale(1.5) rotate(15deg);
+        }
+
+        @keyframes floatHeart {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            25% {
+                transform: translateY(-15px) rotate(5deg);
+            }
+
+            50% {
+                transform: translateY(-30px) rotate(-5deg);
+            }
+
+            75% {
+                transform: translateY(-15px) rotate(5deg);
+            }
+
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+        }
+    </style>
+    </head>
+
+    <body>
+
+        <div class="container">
+
+            <h2>Dashboard คู่รัก 💕</h2>
+
+            <div class="avatars">
+                <div class="avatar-box">
+                    <img
+                        src="uploads/<?= htmlspecialchars($current_user_avatar) ?>"
+                        alt="คุณ">
+                    <p><?= htmlspecialchars($current_user) ?></p>
+                </div>
+                <div class="avatar-box">
+                    <img src="uploads/<?= htmlspecialchars($partner_avatar) ?>"
+                        alt="คู่รัก">
+                    <p><?= htmlspecialchars($partner_user) ?></p>
+                </div>
+            </div>
+
+            <a href="edit.html"><button
+                    class="logout-btn">แก้ไขโปรไฟล์ของคุณ</button></a>
+
+            <div class="info-box">
+                <span class="label">คุณ:</span> <?=
+                htmlspecialchars($current_user) ?>
+            </div>
+
+            <div class="info-box">
+                <span class="label">คู่รัก:</span> <?=
+                htmlspecialchars($partner_user) ?>
+            </div>
+
+            <div class="info-box">
+                <span class="label">วันครบรอบ:</span>
+                <div class="code-box"><?=
+                    htmlspecialchars($couple['anniversary_code']) ?></div>
+            </div>
+
+            <a href="invite.html"><button class="logout-btn"><span
+                        class="label">โค้ดเชิญสำหรับแฟน</span></button></a>
+            <h2>ดูหน้าอื่นๆ</h2>
+            <a href="login.html"><button class="logout-btn"><span
+                        class="label">หน้าล็อคอิน</span></button></a>
+            <a href="register.html"><button class="logout-btn"><span
+                        class="label">หน้าสมัครรหัสผ่าน</span></button></a>
+            <a href="set_anniversary.html"><button class="logout-btn"><span
+                        class="label">หน้าสร้างรหัสยืนยัน</span></button></a>
+            <a href="verify.html"><button class="logout-btn"><span
+                        class="label">หน้ากดรหัสยืนยัน</span></button></a>
+
+            <form action="login.html" method="POST">
+                <button type="submit" class="logout-btn">ออกจากระบบ</button>
+            </form>
+
+        </div>
+
+        <script>
+        const heartSymbols = ['❤️', '💖', '💞', '💗', '💕', '💓', '💘'];
+        const numberOfHearts = 15;
+        for (let i = 0; i < numberOfHearts; i++) {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerText = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+
+            // สุ่มตำแหน่ง
+            heart.style.top = Math.random() * 80 + "%";
+            heart.style.left = Math.random() * 90 + "%";
+
+            // สุ่มขนาด
+            heart.style.fontSize = (15 + Math.random() * 20) + "px";
+
+            // สุ่มความเร็ว animation
+            heart.style.animationDuration = (3 + Math.random() * 4) + "s";
+
+            document.body.appendChild(heart);
+        }
+    </script>
+
+    </body>
+
+</html>

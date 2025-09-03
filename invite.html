@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Invite คู่รัก 💕</title>
+    <link rel="icon" type="image/png" href="icon/icon.png">
+</head>
+
+<body>
+<style>
+    body {
+    margin: 0;
+    font-family: "Prompt", sans-serif;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 40px;
+    border-radius: 30px;
+    width: 400px;
+    position: relative;
+    z-index: 1;
+}
+
+h2 {
+    color: #fff;
+    margin-bottom: 25px;
+    text-shadow: 2px 2px 5px #ff6f91;
+}
+
+.qr-box {
+    background: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    display: inline-block;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    margin-bottom: 15px;
+    transition: transform 0.3s;
+}
+
+.qr-box:hover {
+    transform: scale(1.1);
+}
+
+.invite-text {
+    font-weight: bold;
+    color: #ff477e;
+    margin-bottom: 20px;
+}
+
+.logout-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 15px;
+    background: #ff6f91;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.logout-btn:hover {
+    background: #ff477e;
+}
+
+.heart {
+    position: absolute;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0.8;
+    animation-name: floatHeart;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+.heart:hover {
+    transform: scale(1.5) rotate(15deg);
+}
+
+/* floating animation */
+@keyframes floatHeart {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    25% {
+        transform: translateY(-15px) rotate(5deg);
+    }
+
+    50% {
+        transform: translateY(-30px) rotate(-5deg);
+    }
+
+    75% {
+        transform: translateY(-15px) rotate(5deg);
+    }
+
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+}
+</style>
+    <div class="container">
+        <h2>Invite คู่รัก 💕</h2>
+        <div class="qr-box">
+            <img src="<?= $qr_data ?>" alt="QR code">
+        </div>
+        <div class="invite-text">โค้ดเชิญสำหรับแฟนของคุณ:<br><span><?= htmlspecialchars($couple['invite_code'] ?? "ยังไม่มี") ?></span></div>
+
+        <a href="index.html"><button type="button" class="logout-btn">กลับไปหน้าหลัก</button></a>
+
+        </form>
+    </div>
+
+    <script>
+        const heartSymbols = ['❤️', '💖', '💞', '💗', '💕', '💓', '💘'];
+        const numberOfHearts = 15;
+        for (let i = 0; i < numberOfHearts; i++) {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerText = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+
+            // ตำแหน่ง
+            heart.style.top = Math.random() * 90 + "%";
+            heart.style.left = Math.random() * 90 + "%";
+
+            // ขนาด
+            heart.style.fontSize = (15 + Math.random() * 25) + "px";
+
+            // ความเร็ว
+            heart.style.animationDuration = (3 + Math.random() * 4) + "s";
+
+            document.body.appendChild(heart);
+        }
+    </script>
+
+</body>
+
+</html>

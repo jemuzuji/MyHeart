@@ -1,0 +1,75 @@
+body {
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    font-family: "Prompt", sans-serif;
+    text-align: center;
+    padding: 30px;
+    color: #fff;
+}
+
+form {
+    background: rgba(255,255,255,0.15);
+    padding: 40px;
+    border-radius: 25px;
+    max-width: 360px;
+    margin: 50px auto;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+h2 {
+    margin-bottom: 25px;
+    font-size: 28px;
+    text-shadow: 1px 1px 3px #ff6f91;
+}
+
+#code-display {
+    font-size: 28px;
+    letter-spacing: 10px;
+    background: #fff;
+    color: #ff6f91;
+    padding: 12px;
+    border-radius: 12px;
+    width: 260px;
+    margin: 15px auto;
+    text-align: center;
+}
+
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(3, 80px);
+    gap: 12px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.keypad button {
+    font-size: 20px;
+    padding: 18px;
+    border-radius: 15px;
+    border: none;
+    background: #ff6f91;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.keypad button:hover {
+    background: #ff477e;
+}
+
+.error-msg {
+    margin-top: 15px;
+    background: rgba(255,0,50,0.3);
+    padding: 10px;
+    border-radius: 12px;
+    color: #ffe3e3;
+}
+
+.register-link {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.register-link a {
+    color: #fff;
+    text-decoration: underline;
+}

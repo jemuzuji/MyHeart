@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ยืนยันรหัสวันครบรอบ 💕</title>
+    <link rel="stylesheet" href="css/verify.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="icon" type="image/png" href="icon/icon.png">
+    <script>
+        let code = "";
+
+        function pressNum(num) {
+            code += num;
+            updateDisplay();
+        }
+
+        function backspace() {
+            code = code.slice(0, -1);
+            updateDisplay();
+        }
+
+        function updateDisplay() {
+            document.getElementById("hiddenCode").value = code;
+            document.getElementById("code-display").innerText = code.replace(/./g, "•");
+        }
+    </script>
+</head>
+
+<body>
+
+    <form method="POST">
+        <h2>ยืนยันรหัสวันครบรอบ 💕</h2>
+
+        <div id="code-display"></div>
+        <input type="hidden" name="anniversary_code" id="hiddenCode" required>
+
+        <div class="keypad">
+            <button type="button" onclick="pressNum('1')">1</button>
+            <button type="button" onclick="pressNum('2')">2</button>
+            <button type="button" onclick="pressNum('3')">3</button>
+            <button type="button" onclick="pressNum('4')">4</button>
+            <button type="button" onclick="pressNum('5')">5</button>
+            <button type="button" onclick="pressNum('6')">6</button>
+            <button type="button" onclick="pressNum('7')">7</button>
+            <button type="button" onclick="pressNum('8')">8</button>
+            <button type="button" onclick="pressNum('9')">9</button>
+            <button type="button" onclick="backspace()">⌫</button>
+            <button type="button" onclick="pressNum('0')">0</button>
+            <button type="submit">ยืนยัน</button>
+        </div>
+        <div>
+            <br>
+       <a href="index.html" class="logout-btn">ไปหน้าหลักเลย</a>
+    </div>
+</body>
+
+</html>

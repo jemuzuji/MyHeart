@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <title>แก้ไขโปรไฟล์ 💕</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="icon" type="image/png" href="icon/icon.png">
+</head>
+
+<body>
+    <div class="container">
+        <h2>แก้ไขโปรไฟล์ 💕</h2>
+
+        <div class="avatar-box">
+            <img src="uploads/<?= htmlspecialchars($current_avatar) ?>" alt="Avatar">
+        </div>
+
+        <form method="POST" enctype="multipart/form-data">
+            <label>อัปโหลด Avatar ใหม่:</label><br>
+            <input type="file" name="avatar" accept="image/*" required>
+            <button type="submit" name="upload_avatar">อัปโหลด</button>
+            <div class='upload-error'></div>"
+        </form>
+
+        <a href="index.html"><button class="logout-btn">กลับไปหน้าหลัก</button></a>
+    </div>
+</body>
+
+</html>
